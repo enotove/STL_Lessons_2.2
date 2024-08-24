@@ -4,13 +4,14 @@
 #include <vector>
 
 
-template <class T>
-void print_container(T first, T last)
+template<typename Container>
+void print_container(Container container)
 {  
-    while (first != last)
+    auto it = container.begin();
+    while (it != container.end())
     {
-        std::cout << *first << " ";
-        first++;
+        std::cout << *it << " ";
+        it++;
     }
     std::cout << std::endl;
 }
@@ -19,9 +20,9 @@ void print_container(T first, T last)
 int main()
 {
     std::set<std::string> test_set = { "one", "two", "three", "four" };
-    print_container(test_set.begin(), test_set.end());
+    print_container(test_set);
     std::list<std::string> test_list = { "one", "two", "three", "four" };
-    print_container(test_list.begin(),test_list.end()); 
+    print_container(test_list); 
     std::vector<std::string> test_vector = { "one", "two", "three", "four" };
-    print_container(test_vector.begin(), test_vector.end());
+    print_container(test_vector);
 }
